@@ -2,11 +2,13 @@ package com.crystalfinance.api.controller;
 
 import com.crystalfinance.api.model.Coordinates;
 import com.crystalfinance.api.service.CoordinatesService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class CoordinatesController {
 
     private CoordinatesService coordinatesService;
@@ -16,8 +18,10 @@ public class CoordinatesController {
     }
 
     @GetMapping("/")
-    public List<Coordinates> getCoordinatesList(){
-        return coordinatesService.getCoordinatesList();
+    public String getCoordinatesList(Model model){
+        List<Coordinates> coordinatesList = coordinatesService.getCoordinatesList();
+        model.addAttribute("coordinates", coordinatesList);
+        return "home";
     }
 
     @PostMapping("/coordinates")

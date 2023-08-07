@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GPS Coordinates Management </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Mon CSS -->
+</head>
+<body>
+    <div>
+        <h1>GPS Coordinates Management</h1>
+    </div>
+
+    <div>
+        <h3>Coordinates List</h3>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="coordinates: ${coordinates}">
+                <td th:text="${coordinates.name}"></td>
+                <td th:text="${coordinates.latitude}"></td>
+                <td th:text="${coordinates.longitude}"></td>
+                <td><a th:href="@{/coordinates/{id}(id=${coordinates.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Bootstrap JS bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
