@@ -18,4 +18,8 @@ public class CoordinatesService {
     public List<Coordinates> getCoordinatesList(){
         return coordinatesRepository.findAll();
     }
+
+    public Coordinates addCoordinates(Coordinates coordinates){
+        return coordinatesRepository.save(coordinates);
+    }
 }
