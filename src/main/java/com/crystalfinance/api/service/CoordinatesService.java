@@ -7,6 +7,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
+/**
+ * This class contains necessary methods to get, add and delete Coordinates
+ * This class uses the CoordinatesRepository interface to perform this actions
+ */
 @Slf4j
 @Service
 public class CoordinatesService {
@@ -17,6 +22,11 @@ public class CoordinatesService {
         this.coordinatesRepository = coordinatesRepository;
     }
 
+    /**
+     * This method finds all Coordinates
+     *
+     * @return a list of Coordinates
+     */
     public List<Coordinates> getCoordinatesList(){
         List<Coordinates> coordinatesList = coordinatesRepository.findAll();
         if(coordinatesList.isEmpty()){
@@ -28,10 +38,21 @@ public class CoordinatesService {
         }
     }
 
+    /**
+     * This method saves a Coordinates
+     *
+     * @param coordinates to save
+     * @return the saved Coordinates
+     */
     public Coordinates addCoordinates(Coordinates coordinates){
         return coordinatesRepository.insert(coordinates);
     }
 
+    /**
+     * This method finds a Coordinates and deletes it
+     *
+     * @param id of coordinates in database
+     */
     public Coordinates deleteCoordinates(String id){
         Optional<Coordinates> optionalCoordinates = coordinatesRepository.findById(id);
         if(optionalCoordinates.isEmpty()){
