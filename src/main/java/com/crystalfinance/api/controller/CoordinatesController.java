@@ -20,17 +20,20 @@ public class CoordinatesController {
     @GetMapping("/")
     public String getCoordinatesList(Model model){
         List<Coordinates> coordinatesList = coordinatesService.getCoordinatesList();
-        model.addAttribute("coordinates", coordinatesList);
+        model.addAttribute("coordinatesList", coordinatesList);
+        model.addAttribute("coordinates", new Coordinates());
         return "home";
     }
 
     @PostMapping("/coordinates")
-    public Coordinates addCoordinates(@RequestBody Coordinates coordinates){
-        return coordinatesService.addCoordinates(coordinates);
+    public String addCoordinates(@ModelAttribute Coordinates coordinates){
+        coordinatesService.addCoordinates(coordinates);
+        return "redirect:/";
     }
 
-    @DeleteMapping("/coordinates/{id}")
-    public Coordinates deleteCoordinates(@PathVariable("id") String id) {
-        return coordinatesService.deleteCoordinates(id);
+    @GetMapping("/coordinates/{id}")
+    public String deleteCoordinates(@PathVariable("id") String id) {
+        coordinatesService.deleteCoordinates(id);
+        return "redirect:/";
     }
 }
