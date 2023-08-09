@@ -47,6 +47,15 @@ public class CoordinatesController {
     public String getCoupleOfId(@ModelAttribute CoupleOfId coupleOfId){
         distance = distanceCalculateService.calculateDistance(coupleOfId.getIdOne(), coupleOfId.getIdTwo());
         System.out.println("La distance est de : " + distance + " km");
-        return "redirect:/";
+        return "redirect:/result";
+    }
+
+    @GetMapping("/result")
+    public String displayResult(){
+        if(distance > 10){
+            return "more";
+        } else{
+            return "less";
+        }
     }
 }
