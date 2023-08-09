@@ -2,6 +2,7 @@ package com.crystalfinance.api.controller;
 
 import com.crystalfinance.api.model.Coordinates;
 import com.crystalfinance.api.service.CoordinatesService;
+import com.crystalfinance.api.utils.CoupleOfId;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +35,13 @@ public class CoordinatesController {
     @GetMapping("/coordinates/{id}")
     public String deleteCoordinates(@PathVariable("id") String id) {
         coordinatesService.deleteCoordinates(id);
+        return "redirect:/";
+    }
+
+    @PostMapping("/couple-of-id")
+    public String getCoupleOfId(@ModelAttribute CoupleOfId coupleOfId){
+        System.out.println(coupleOfId.getIdOne());
+        System.out.println(coupleOfId.getIdTwo());
         return "redirect:/";
     }
 }
