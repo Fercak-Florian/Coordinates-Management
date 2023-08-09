@@ -7,11 +7,10 @@
     <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Mon CSS -->
 </head>
 <body>
-    <div>
-        <h1>GPS Coordinates Management</h1>
+    <div class="container">
+        <h1 class="my-3">GPS Coordinates Management</h1>
     </div>
-
-    <div>
+    <div class="container">
         <h3>Coordinates List</h3>
         <table class="table table-bordered">
             <thead>
@@ -19,6 +18,7 @@
                 <th>Name</th>
                 <th>Latitude</th>
                 <th>Longitude</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -31,31 +31,43 @@
             </tbody>
         </table>
     </div>
-    <h3>Adding coordinates</h3>
-    <form th:action="@{/coordinates}" th:object="${coordinates}" method="post" class="form-horizontal"
-          style="width: 100%">
-        <div class="form-group">
-            <label for="Name" class="col-sm-2 control-label">Name</label>
-            <div class="col-sm-10">
-                <input type="text" id="Name" th:field="*{name}" placeholder="Name" autofocus>
+    <div class="container">
+        <h3>Adding coordinates</h3>
+    </div>
+    <div class="container">
+        <form th:action="@{/coordinates}" th:object="${coordinates}" method="post">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="Name" >Name</label>
+                    <div>
+                        <input class="form-control" type="text" id="Name" th:field="*{name}" placeholder="Name" autofocus>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="latitude">Latitude</label>
+                    <div>
+                        <input class="form-control" type="number" step="0.0000001"  id="latitude" th:field="*{latitude}" placeholder="Latitude">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="longitude">Longitude</label>
+                    <div>
+                        <input class="form-control" type="number" step="0.0000001" id="longitude" th:field="*{longitude}" placeholder="Longitude">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div>
+                        <input class="btn btn-primary mt-4" type="submit" value="Add Coordinates" id="submit"/>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="latitude" class="col-sm-2 control-label">Latitude</label>
-            <div class="col-sm-10">
-                <input type="number" step="0.0000001" id="latitude" th:field="*{latitude}" placeholder="Latitude">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="longitude" class="col-sm-2 control-label">Longitude</label>
-            <div class="col-sm-10">
-                <input type="number" step="0.0000001" id="longitude" th:field="*{longitude}" placeholder="Longitude">
-            </div>
-        </div>
-        <input type="submit" value="Add Coordinates" />
-    </form>
-    <h3>Calculating distance between 2 coordinates</h3>
-    <div>
+
+        </form>
+    </div>
+    <div class="container">
+        <h3 class="my-3">Calculating distance between 2 coordinates</h3>
+    </div>
+    <div class="container">
         <form th:action="@{/couple-of-id}" method="post" th:object="${coupleOfId}">
             <label for="coordinatesOne">Choose a first coordinates:</label>
             <select id="coordinatesOne" name="idOne">
@@ -68,7 +80,7 @@
                 <option selected disabled value="">Select A Coordinates</option>
                 <option th:each="c: ${coordinatesList}" th:value="${c.id}" th:text="${c.name}"></option>
             </select>
-            <input type="submit" value="Check Distance">
+            <input class="btn btn-primary" type="submit" value="Check Distance">
         </form>
     </div>
     <!-- Bootstrap JS bundle -->
