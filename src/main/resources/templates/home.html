@@ -56,7 +56,7 @@
     </form>
     <h3>Calculating distance between 2 coordinates</h3>
     <div>
-        <form th:action="@{/}" method="post">
+        <form th:action="@{/couple-of-id}" method="post" th:object="${coupleOfId}">
             <label for="coordinatesOne">Choose a first coordinates:</label>
             <select id="coordinatesOne" name="idOne">
                 <option selected disabled value="">Select A Coordinates</option>
