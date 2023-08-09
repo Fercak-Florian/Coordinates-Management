@@ -2,6 +2,7 @@ package com.crystalfinance.api.controller;
 
 import com.crystalfinance.api.model.Coordinates;
 import com.crystalfinance.api.service.CoordinatesService;
+import com.crystalfinance.api.service.DistanceCalculateService;
 import com.crystalfinance.api.utils.CoupleOfId;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +13,14 @@ import java.util.List;
 @Controller
 public class CoordinatesController {
 
-    private CoordinatesService coordinatesService;
+    private long distance = 0;
 
-    public CoordinatesController(CoordinatesService coordinatesService){
+    private CoordinatesService coordinatesService;
+    private DistanceCalculateService distanceCalculateService;
+
+    public CoordinatesController(CoordinatesService coordinatesService, DistanceCalculateService distanceCalculateService){
         this.coordinatesService = coordinatesService;
+        this.distanceCalculateService = distanceCalculateService;
     }
 
     @GetMapping("/")
@@ -40,8 +45,8 @@ public class CoordinatesController {
 
     @PostMapping("/couple-of-id")
     public String getCoupleOfId(@ModelAttribute CoupleOfId coupleOfId){
-        System.out.println(coupleOfId.getIdOne());
-        System.out.println(coupleOfId.getIdTwo());
+        distance = distanceCalculateService.calculateDistance(coupleOfId.getIdOne(), coupleOfId.getIdTwo());
+        System.out.println("La distance est de : " + distance + " km");
         return "redirect:/";
     }
 }
