@@ -11,6 +11,6 @@ public class Coordinates {
     @Id
     private String id;
     private String name;
-    private String latitude;
-    private String longitude;
+    private double latitude;
+    private double longitude;
 }
