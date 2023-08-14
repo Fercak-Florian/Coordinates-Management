@@ -4,6 +4,7 @@ import com.crystalfinance.api.model.Coordinates;
 import com.crystalfinance.api.repository.CoordinatesRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,7 @@ public class CoordinatesService {
 
     private CoordinatesRepository coordinatesRepository;
 
-    public CoordinatesService(CoordinatesRepository coordinatesRepository){
+    public CoordinatesService(CoordinatesRepository coordinatesRepository) {
         this.coordinatesRepository = coordinatesRepository;
     }
 
@@ -26,15 +27,8 @@ public class CoordinatesService {
      *
      * @return a list of Coordinates
      */
-    public List<Coordinates> getCoordinatesList(){
-        List<Coordinates> coordinatesList = coordinatesRepository.findAll();
-        if(coordinatesList.isEmpty()){
-            log.warn("coordinates list is empty");
-            return null;
-        } else {
-            log.info("providing coordinates list");
-            return coordinatesList;
-        }
+    public List<Coordinates> getCoordinatesList() {
+        return coordinatesRepository.findAll();
     }
 
     /**
@@ -43,7 +37,7 @@ public class CoordinatesService {
      * @param coordinates to save
      * @return the saved Coordinates
      */
-    public Coordinates addCoordinates(Coordinates coordinates){
+    public Coordinates addCoordinates(Coordinates coordinates) {
         return coordinatesRepository.insert(coordinates);
     }
 
@@ -52,15 +46,13 @@ public class CoordinatesService {
      *
      * @param id of coordinates in database
      */
-    public Coordinates deleteCoordinates(String id){
+    public Coordinates deleteCoordinates(String id) {
         Optional<Coordinates> optionalCoordinates = coordinatesRepository.findById(id);
-        if(optionalCoordinates.isEmpty()){
-            log.warn("coordinates not found for this id : " + id);
-            return null;
-        } else {
+        if (optionalCoordinates.isPresent()) {
             coordinatesRepository.deleteById(id);
-            log.info("coordinates with the id " + id + " is deleted");
             return optionalCoordinates.get();
+        } else {
+            return null;
         }
     }
 }
