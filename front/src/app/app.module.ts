@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { CoordinatesListComponent } from './coordinates-list/coordinates-list.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoordinatesListComponent
+    CoordinatesListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule
