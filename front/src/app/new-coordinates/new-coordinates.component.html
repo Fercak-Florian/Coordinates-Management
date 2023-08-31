@@ -1,0 +1,17 @@
+<h2>Add New Coordinates</h2>
+<form [formGroup]="coordinatesForm">
+  <div>
+    <label for="latitude">Latitude</label>
+    <input id="latitude" type="text" formControlName="latitude">
+  </div>
+
+  <div>
+    <label for="longitude">Longitude</label>
+    <input id="longitude" type="text" formControlName="longitude">
+  </div>
+
+  <div>
+    <button type="submit" (click)="onSubmitForm()">Add Coordinates</button>
+  </div>
+
+</form>
