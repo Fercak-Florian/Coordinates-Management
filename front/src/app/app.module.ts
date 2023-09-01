@@ -6,6 +6,7 @@ import { CoordinatesListComponent } from './coordinates-list/coordinates-list.co
 import { HeaderComponent } from './header/header.component';
 import { NewCoordinatesComponent } from './new-coordinates/new-coordinates.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {ReactiveFormsModule} from "@angular/forms";
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

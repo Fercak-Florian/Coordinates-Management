@@ -6,12 +6,12 @@ import com.crystalfinance.api.service.DistanceCalculateService;
 import com.crystalfinance.api.utils.CoupleOfId;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Slf4j
+@CrossOrigin
 @RestController
 public class CoordinatesController {
 
@@ -25,10 +25,10 @@ public class CoordinatesController {
         this.distanceCalculateService = distanceCalculateService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/coordinates")
     public ResponseEntity<List<Coordinates>> getCoordinatesList() {
         List<Coordinates> coordinatesList = coordinatesService.getCoordinatesList();
-        log.info("display home page");
+        log.info("providing coordinates list");
         return ResponseEntity.ok(coordinatesList);
     }
 
