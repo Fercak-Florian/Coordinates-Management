@@ -1,0 +1,24 @@
+<h1>Coordinates List</h1>
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let c of coordinates$ | async">
+      <td>{{c.id}}</td>
+      <td>{{c.name}}</td>
+      <td>{{c.latitude}}</td>
+      <td>{{c.longitude}}</td>
+      <td><a href="">Delete</a></td>
+    </tr>
+
+  </tbody>
+</table>
+
