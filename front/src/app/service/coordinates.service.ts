@@ -17,4 +17,8 @@ export class CoordinatesService {
   getCoordinates(): Observable<Coordinates[]>{
     return this.http.get<Coordinates[]>('http://localhost:8080/coordinates');
   }
+
+  addCoordinates(formValue: {id: string, name: string, latitude: string, longitude: string}): Observable<Coordinates>{
+    return this.http.post<Coordinates>('http://localhost:8080/coordinates', formValue);
+  }
 }

@@ -35,6 +35,7 @@ public class CoordinatesController {
     @PostMapping("/coordinates")
     public ResponseEntity<Coordinates> addCoordinates(@RequestBody Coordinates coordinates) {
         Coordinates addedCoordinates = coordinatesService.addCoordinates(coordinates);
+        log.info("adding new coordinates");
         return ResponseEntity.ok(addedCoordinates);
     }
 
