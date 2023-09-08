@@ -7,16 +7,20 @@ import { HeaderComponent } from './header/header.component';
 import { NewCoordinatesComponent } from './new-coordinates/new-coordinates.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {AppRoutingModule} from "./app-routing.module";
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoordinatesListComponent,
     HeaderComponent,
-    NewCoordinatesComponent
+    NewCoordinatesComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
