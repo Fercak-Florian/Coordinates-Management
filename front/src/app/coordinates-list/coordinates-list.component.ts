@@ -14,6 +14,7 @@ export class CoordinatesListComponent implements OnInit {
   coordinates$!: Observable<Coordinates[]>;
 
   /*Pour utiliser un service, on l'instantie grâce au constructor*/
+
   /*Ici on onject coordinatesService dans la classe CoordinatesListComponent*/
   constructor(private coordinatesService: CoordinatesService) {
   }
@@ -22,8 +23,12 @@ export class CoordinatesListComponent implements OnInit {
    de la création de chaque instance du component.
    Elle permet notamment d'initialiser des propriétés.*/
   ngOnInit(): void {
-        this.coordinates$ = this.coordinatesService.getCoordinates();
-        /*Pour être sur que je récupère bien les coordonnées du backend*/
-        console.log(this.coordinates$.forEach(value => console.log(value)));
-    }
+    this.coordinates$ = this.coordinatesService.getCoordinates();
+    /*Pour être sur que je récupère bien les coordonnées du backend*/
+    console.log(this.coordinates$.forEach(value => console.log(value)));
+  }
+
+  onDelete(id: string): void {
+    this.coordinatesService.deleteCoordinates(id).subscribe();
+  }
 }
