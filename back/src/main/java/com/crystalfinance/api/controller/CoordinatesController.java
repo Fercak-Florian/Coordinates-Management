@@ -42,6 +42,7 @@ public class CoordinatesController {
     @DeleteMapping("/coordinates/{id}")
     public ResponseEntity deleteCoordinates(@PathVariable("id") String id) {
         Coordinates deletedCoordinates = coordinatesService.deleteCoordinates(id);
+        log.info("deleting coordinates");
         return ResponseEntity.ok(deletedCoordinates);
     }
 
