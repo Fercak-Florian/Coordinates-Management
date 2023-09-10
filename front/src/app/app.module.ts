@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { CoordinatesListComponent } from './coordinates-list/coordinates-list.component';
 import { HeaderComponent } from './header/header.component';
 import { NewCoordinatesComponent } from './new-coordinates/new-coordinates.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, NgModel, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from "./app-routing.module";
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -24,7 +24,8 @@ import {DistanceCalculateComponent} from "./distance-calculate/distance-calculat
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
