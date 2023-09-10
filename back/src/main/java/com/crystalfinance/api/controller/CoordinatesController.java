@@ -49,6 +49,7 @@ public class CoordinatesController {
     @PostMapping("/couple-of-id")
     public ResponseEntity<Long> getCoupleOfId(@RequestBody CoupleOfId coupleOfId) {
         distance = distanceCalculateService.calculateDistance(coupleOfId.getIdOne(), coupleOfId.getIdTwo());
+        log.info("providing distance");
         return ResponseEntity.ok(distance);
     }
 }
