@@ -1,0 +1,17 @@
+<p>distance-calculate works!</p>
+<div class="menu">
+  <div>
+    <select>
+      <option *ngFor="let c1 of coordinates$ | async">{{ c1.name }}</option>
+    </select>
+  </div>
+
+  <div>
+    <select>
+      <option *ngFor="let c2 of coordinates$ | async">{{ c2.name }}</option>
+    </select>
+  </div>
+  <div>
+    <button type="submit" (click)="onCalculate()">Calculate</button>
+  </div>
+</div>
