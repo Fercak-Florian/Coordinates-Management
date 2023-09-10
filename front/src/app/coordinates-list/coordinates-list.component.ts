@@ -24,8 +24,7 @@ export class CoordinatesListComponent implements OnInit {
    Elle permet notamment d'initialiser des propriétés.*/
   ngOnInit(): void {
     this.coordinates$ = this.coordinatesService.getCoordinates();
-    /*Pour être sur que je récupère bien les coordonnées du backend*/
-    console.log(this.coordinates$.forEach(value => console.log(value)));
+
   }
 
   onDelete(id: string): void {

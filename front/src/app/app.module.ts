@@ -9,6 +9,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from "./app-routing.module";
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import {DistanceCalculateComponent} from "./distance-calculate/distance-calculate.component";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     CoordinatesListComponent,
     HeaderComponent,
     NewCoordinatesComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    DistanceCalculateComponent
   ],
   imports: [
     BrowserModule,
