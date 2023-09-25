@@ -1,5 +1,6 @@
 package com.crystalfinance.api.service;
 
+import com.crystalfinance.api.exception.CoordinatesNotFoundException;
 import com.crystalfinance.api.model.Coordinates;
 import com.crystalfinance.api.repository.CoordinatesRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -52,7 +53,7 @@ public class CoordinatesService {
             coordinatesRepository.deleteById(id);
             return optionalCoordinates.get();
         } else {
-            return null;
+            throw new CoordinatesNotFoundException("no coordinates found with id : " + id);
         }
     }
 }
