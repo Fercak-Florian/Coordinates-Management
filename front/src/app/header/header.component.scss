@@ -1,12 +1,36 @@
 .header{
-  border: cornflowerblue 2px solid;
+  margin-bottom: 40px;
+  height: 120px;
 }
 
 h1{
   text-align: center;
+  height: 70px;
 }
 
 nav{
   display: flex;
   justify-content: space-evenly;
+}
+
+#coordinates{
+  color: cornflowerblue;
+}
+
+a{
+	background-color: cornflowerblue;
+	color: white;
+	display: block;
+	width: 170px;
+	line-height: 40px;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 8px;
+	text-decoration: none;
+}
+
+a:hover{
+    color: cornflowerblue;
+    border: 3px solid cornflowerblue;
+    background-color: whitesmoke;
 }
