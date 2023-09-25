@@ -16,7 +16,7 @@ export class CoordinatesListComponent implements OnInit {
   /*Pour utiliser un service, on l'instantie grâce au constructor*/
 
   /*Ici on onject coordinatesService dans la classe CoordinatesListComponent*/
-  constructor(private coordinatesService: CoordinatesService, private router: Router) {
+  constructor(private coordinatesService: CoordinatesService) {
   }
 
   /*La méthode  ngOnInit()  est appelée automatiquement par Angular au moment

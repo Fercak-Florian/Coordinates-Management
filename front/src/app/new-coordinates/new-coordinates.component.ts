@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {CoordinatesService} from "../service/coordinates.service";
+import { tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-coordinates',
@@ -11,7 +13,7 @@ export class NewCoordinatesComponent implements OnInit {
 
   coordinatesForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private coordinatesService: CoordinatesService) { }
+  constructor(private formBuilder: FormBuilder, private coordinatesService: CoordinatesService, private router: Router) { }
 
   ngOnInit(): void {
     this.coordinatesForm = this.formBuilder.group({
@@ -22,7 +24,9 @@ export class NewCoordinatesComponent implements OnInit {
   }
 
   onSubmitForm(){
-    console.log(this.coordinatesForm.value);
-    this.coordinatesService.addCoordinates(this.coordinatesForm.value).subscribe();
+    this.coordinatesService.addCoordinates(this.coordinatesForm.value).pipe(
+      tap(() => this.router.navigateByUrl('coordinates-list'))
+    )
+    .subscribe();
   }
 }
