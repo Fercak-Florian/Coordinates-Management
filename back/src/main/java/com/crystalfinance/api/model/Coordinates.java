@@ -8,6 +8,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "coordinates")
 public class Coordinates {
 
+    public Coordinates(String id, String name, double latitude, double longitude){
+        this.id = id;
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
     @Id
     private String id;
     private String name;
