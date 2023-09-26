@@ -1,0 +1,52 @@
+.calcul{
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.choice{
+    margin-top: 200px;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.select{
+    margin-right: 100px;
+}
+
+label{
+    margin-right: 20px;
+}
+
+.resultats{
+    display: flex;
+    justify-content: center;
+}
+
+.resultat{
+    padding: 60px;
+    margin-top: 40px;
+    border-radius: 10px 30px 0px 90px;
+    background-color: cornflowerblue;
+    
+}
+
+span{
+    font-weight: bold;
+}
+
+button{
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+    width : 150px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+button:hover{
+    color: cornflowerblue;
+    border: solid 3px cornflowerblue;
+    background-color: whitesmoke;
+}

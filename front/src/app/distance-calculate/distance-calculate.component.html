@@ -1,13 +1,15 @@
-<div>
-  <div>
-    <div>
-      <select [(ngModel)]="idOne">
+<div class="calcul">
+  <div class="choice">
+    <div class="select">
+      <label for="firstCoordinates">Choose a first place</label>
+      <select id="firstCoordinates" [(ngModel)]="idOne">
         <option *ngFor="let c1 of coordinates$ | async" [value]="c1.id">{{ c1.name }}</option>
       </select>
     </div>
 
-    <div>
-      <select [(ngModel)]="idTwo">
+    <div class="select">
+      <label for="secondCoordinates">Choose a second place</label>
+      <select id="secondCoordinates" [(ngModel)]="idTwo">
         <option *ngFor="let c2 of coordinates$ | async" [value]="c2.id">{{ c2.name }}</option>
       </select>
     </div>
@@ -16,15 +18,15 @@
       <button type="submit" (click)="onCalculate()">Calculate</button>
     </div>
   </div>
-  <div>
-    <div *ngIf="result > referenceDistance">
-      <p>La distance qui sépare ces 2 coordonnées supérieure à {{referenceDistance}} km</p>
-      <p>Celle-ci est de {{result}} km</p>
+  <div class="resultats">
+    <div class="resultat" *ngIf="result > referenceDistance">
+      <p>The distance between this 2 coordinates is <span>greater than</span> {{referenceDistance}} km.</p>
+      <p>This is <span> {{result}} km.</span></p>
     </div>
 
-    <div *ngIf="result < referenceDistance">
-      <p>La distance qui sépare ces 2 coordonnées inférieure à {{referenceDistance}} km</p>
-      <p>Celle-ci est de {{result}} km</p>
+    <div class="resultat" *ngIf="result < referenceDistance">
+      <p>The distance between this 2 coordinates is <span>less than</span> {{referenceDistance}} km.</p>
+      <p>This is <span> {{result}} km.</span></p>
     </div>
   </div>
 </div>
