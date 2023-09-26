@@ -1,1 +1,14 @@
+button{
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+    width : 100px;
+    height: 30px;
+    border-radius: 8px;
+}
 
+button:hover{
+    color: cornflowerblue;
+    border: solid 3px cornflowerblue;
+    background-color: whitesmoke;
+}
