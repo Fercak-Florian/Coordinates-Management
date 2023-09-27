@@ -1,13 +1,14 @@
 package com.crystalfinance.api.service;
 
+import com.crystalfinance.api.exception.CoordinatesNotFoundException;
 import com.crystalfinance.api.model.Coordinates;
 import com.crystalfinance.api.repository.CoordinatesRepository;
 import lombok.extern.slf4j.Slf4j;
+import net.sf.geographiclib.Geodesic;
+import net.sf.geographiclib.GeodesicData;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-
-import net.sf.geographiclib.*;
 
 @Slf4j
 @Service
@@ -34,8 +35,9 @@ public class DistanceCalculateService {
             GeodesicData geodesic = Geodesic.WGS84.Inverse(coordinatesOne.getLatitude(), coordinatesOne.getLongitude(), coordinatesTwo.getLatitude(), coordinatesTwo.getLongitude());
             double distanceInMeters = geodesic.s12;
             double distanceInKilometers = distanceInMeters / 1000;
-            distance = Math.round(distanceInKilometers);
+            return Math.round(distanceInKilometers);
+        } else{
+            throw new CoordinatesNotFoundException("no coordinates found with ids : " + idOne + " and " + idTwo);
         }
-        return distance;
     }
 }
