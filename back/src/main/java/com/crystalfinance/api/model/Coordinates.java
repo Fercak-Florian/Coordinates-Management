@@ -1,5 +1,7 @@
 package com.crystalfinance.api.model;
 
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,7 +19,13 @@ public class Coordinates {
 
     @Id
     private String id;
+
+    @NotEmpty(message = "name field cannot be empty")
     private String name;
+
+    @DecimalMin(value = "0.001", message = "please enter a value greater than 0.001")
     private double latitude;
+
+    @DecimalMin(value = "0.001", message = "please enter a value greater than 0.001")
     private double longitude;
 }
