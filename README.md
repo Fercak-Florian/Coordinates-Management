@@ -15,7 +15,7 @@ You can view, add and delete places located by its coordinates.
 Then run the 'back' application
 
 #### Step 3 : go to the 'front' folder
-Then run the npm install command
+Then run the npm install command  
 When it's done, run the ng serve command
 
 #### Step 4 : Use your brower to go to the localhost:4200 adress
