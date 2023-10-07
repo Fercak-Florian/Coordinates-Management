@@ -4,8 +4,8 @@ You can view, add and delete places located by its coordinates.
 
 ## Prerequisite :
 
- - Java 17
- - Angular
+ - Java 17.0.8
+ - Angular 16.2.0
  
 ## Installation :
  
