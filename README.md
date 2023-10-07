@@ -11,7 +11,7 @@ You can view, add and delete places located by its coordinates.
  
 #### Step 1 : download this project
  
-#### Step 2 : import the back project with IntelliJ or Eclipse
-Then run the back application
+#### Step 2 : import the back project with your favorite IDE
+Then run the 'back' application
 
 #### Step 3 : 
