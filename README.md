@@ -1,5 +1,5 @@
 # Coordinates Management
-This application has been developed to manage coordinates 
+This application has been developed to manage coordinates   
 You can view, add and delete places located by its coordinates.
 
 ## Prerequisite :
