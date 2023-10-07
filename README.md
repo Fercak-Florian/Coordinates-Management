@@ -18,5 +18,5 @@ Then run the 'back' application
 Then run the npm install command  
 When it's done, run the ng serve command
 
-#### Step 4 : Use your brower to go to the localhost:4200 adress
+#### Step 4 : Use your brower to go to the localhost:4200 address
 Enjoy testing the app :-)
