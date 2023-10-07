@@ -1,8 +1,7 @@
-import {Injectable} from "@angular/core";
-import {Coordinates} from "../models/coordinates.models";
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {CoupleOfId} from "../models/CoupleOfId";
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Coordinates } from "../models/coordinates.models";
 
 
 @Injectable({
@@ -14,16 +13,15 @@ export class CoordinatesService {
   constructor(private http: HttpClient) {
   }
 
-  /*Methode de recuperation des coordonnees*/
   getCoordinates(): Observable<Coordinates[]> {
     return this.http.get<Coordinates[]>('http://localhost:8080/coordinates');
   }
 
   addCoordinates(formValue: {
-    id: string,
+    /*id: string,
     name: string,
-    latitude: string,
-    longitude: string
+    latitude: number,
+    longitude: number*/
   }): Observable<Coordinates> {
     return this.http.post<Coordinates>('http://localhost:8080/coordinates', formValue);
   }

@@ -1,27 +1,24 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {CoordinatesService} from "../service/coordinates.service";
-import { tap } from 'rxjs';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import { CoordinatesService } from "../service/coordinates.service";
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-new-coordinates',
   templateUrl: './new-coordinates.component.html',
   styleUrls: ['./new-coordinates.component.scss']
 })
-export class NewCoordinatesComponent implements OnInit {
+export class NewCoordinatesComponent {
 
-  coordinatesForm!: FormGroup;
-
-  constructor(private formBuilder: FormBuilder, private coordinatesService: CoordinatesService, private router: Router) { }
-
-  ngOnInit(): void {
-    this.coordinatesForm = this.formBuilder.group({
-      name: [null],
-      latitude: [null],
-      longitude: [null]
-    });
+  constructor(private coordinatesService: CoordinatesService, private router: Router, private formBuilder: FormBuilder) {
   }
+
+  coordinatesForm = this.formBuilder.group({
+    name: this.formBuilder.control('', [Validators.required]),
+    latitude: this.formBuilder.control('', [Validators.required]),
+    longitude: this.formBuilder.control('', [Validators.required])
+  });
 
   onSubmitForm(){
     this.coordinatesService.addCoordinates(this.coordinatesForm.value).pipe(

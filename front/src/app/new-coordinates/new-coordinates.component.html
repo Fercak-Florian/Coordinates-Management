@@ -1,23 +1,24 @@
 <div>
   <h2>Add New Coordinates</h2>
-  <form class="form" [formGroup]="coordinatesForm">
-
+  <form class="form" (ngSubmit)="onSubmitForm()" [formGroup]="coordinatesForm">
     <div class="form-group">
-      <label for="name">Name</label>
-      <input class="form-control" id="name" type="text" formControlName="name">
+      <label>Name</label><input class="form-control" type="text" formControlName="name">
+      <div class="message" *ngIf="coordinatesForm.controls.name.dirty && coordinatesForm.controls.name.hasError('required')">Name is required</div>
     </div>
 
     <div class="form-group">
-      <label for="latitude">Latitude</label>
-      <input class="form-control" id="latitude" type="text" formControlName="latitude">
+      <label>Latitude</label><input class="form-control" type="number" formControlName="latitude">
+      <div class="message" *ngIf="coordinatesForm.controls.latitude.dirty && coordinatesForm.controls.latitude.hasError('required')">Latitude is required</div>
     </div>
 
     <div class="form-group">
-      <label for="longitude">Longitude</label>
-      <input class="form-control" id="longitude" type="text" formControlName="longitude">
+      <label>Longitude</label><input class="form-control" type="number" formControlName="longitude">
+      <div class="message" *ngIf="coordinatesForm.controls.longitude.dirty && coordinatesForm.controls.longitude.hasError('required')">Longitude is required</div>
     </div>
-
-    <button type="submit" (click)="onSubmitForm()">Add Coordinates</button>
-
+    <div>
+      <button type="reset" >Reset</button>
+      <button type="submit" [disabled]="coordinatesForm.invalid">Add Coordinates</button>
+    </div>
+    
   </form>
 </div>
