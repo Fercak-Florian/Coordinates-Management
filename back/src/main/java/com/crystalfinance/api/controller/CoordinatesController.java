@@ -44,6 +44,16 @@ public class CoordinatesController {
         }
     }
 
+    @PutMapping("/coordinates/{id}")
+    public ResponseEntity<Coordinates> updateCoordinates(@Valid @RequestBody Coordinates coordinates, @PathVariable("id") String id, BindingResult result){
+        if(id.isBlank() || result.hasErrors()){
+            throw new CoordinatesNotFoundException("received coordinates or id are not valid");
+        } else {
+            Coordinates updatedCoordinates = coordinatesService.updateCoordinates(coordinates, id);
+            return ResponseEntity.ok(updatedCoordinates);
+        }
+    }
+
     @DeleteMapping("/coordinates/{id}")
     public ResponseEntity deleteCoordinates(@PathVariable("id") String id) {
         if (id.isBlank()) {

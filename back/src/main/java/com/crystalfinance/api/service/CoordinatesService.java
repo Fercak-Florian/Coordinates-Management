@@ -43,6 +43,25 @@ public class CoordinatesService {
     }
 
     /**
+     * This method updates a Coordinates
+     *
+     * @param coordinates to update
+     * @return the updated Coordinates
+     */
+    public Coordinates updateCoordinates(Coordinates coordinates, String id){
+        Optional<Coordinates> optionalCoordinates = coordinatesRepository.findById(id);
+        if(optionalCoordinates.isPresent()){
+            Coordinates coordinatesToUpdate = optionalCoordinates.get();
+            coordinatesToUpdate.setName(coordinates.getName());
+            coordinatesToUpdate.setLatitude(coordinates.getLatitude());
+            coordinatesToUpdate.setLatitude(coordinates.getLongitude());
+            return coordinatesRepository.save(coordinatesToUpdate);
+        } else {
+            throw new CoordinatesNotFoundException("no coordinates found with id : " + id);
+        }
+    }
+
+    /**
      * This method finds a Coordinates and deletes it
      *
      * @param id of coordinates in database
