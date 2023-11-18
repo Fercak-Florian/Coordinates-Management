@@ -10,6 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from "./app-routing.module";
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import {DistanceCalculateComponent} from "./distance-calculate/distance-calculate.component";
+import { UpdateCoordinatesComponent } from './update-coordinates/update-coordinates.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {DistanceCalculateComponent} from "./distance-calculate/distance-calculat
     HeaderComponent,
     NewCoordinatesComponent,
     LandingPageComponent,
-    DistanceCalculateComponent
+    DistanceCalculateComponent,
+    UpdateCoordinatesComponent
   ],
   imports: [
     BrowserModule,

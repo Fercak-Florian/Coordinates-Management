@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, map, tap } from "rxjs";
 import { Coordinates } from "../models/coordinates.models";
 
 
@@ -17,6 +17,10 @@ export class CoordinatesService {
     return this.http.get<Coordinates[]>('http://localhost:8080/coordinates');
   }
 
+  getCoordinatesById(id: string): Observable<Coordinates> {
+    return this.http.get<Coordinates>(`http://localhost:8080/coordinates/${id}`);
+  }
+
   addCoordinates(formValue: {
     /*id: string,
     name: string,
@@ -24,6 +28,10 @@ export class CoordinatesService {
     longitude: number*/
   }): Observable<Coordinates> {
     return this.http.post<Coordinates>('http://localhost:8080/coordinates', formValue);
+  }
+
+  updateCoordinates(formValue: {}, id: string): Observable<Coordinates>{
+    return this.http.put<Coordinates>(`http://localhost:8080/coordinates/${id}`, formValue);
   }
 
   deleteCoordinates(id: string): Observable<Coordinates> {

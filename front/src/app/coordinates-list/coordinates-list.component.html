@@ -14,6 +14,7 @@
       <td>{{c.name}}</td>
       <td>{{c.latitude}}</td>
       <td>{{c.longitude}}</td>
+      <td><button (click)="onUpdate(c.id)">Update</button></td>
       <td><button (click)="onDelete(c.id)">Delete</button></td>
     </tr>
 

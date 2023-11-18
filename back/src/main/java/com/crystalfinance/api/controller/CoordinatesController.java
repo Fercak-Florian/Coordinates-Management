@@ -34,6 +34,12 @@ public class CoordinatesController {
         return ResponseEntity.ok(coordinatesList);
     }
 
+    @GetMapping("/coordinates/{id}")
+    public ResponseEntity<Coordinates> getCoordinatesById(@PathVariable("id") String id){
+        Coordinates singleCoordinates = coordinatesService.getCoordinatesById(id);
+        return ResponseEntity.ok(singleCoordinates);
+    }
+
     @PostMapping("/coordinates")
     public ResponseEntity<Object> addCoordinates(@Valid @RequestBody Coordinates coordinates, BindingResult result) {
         if (result.hasErrors()) {
