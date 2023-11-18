@@ -38,6 +38,16 @@ public class CoordinatesService {
      * @param coordinates to save
      * @return the saved Coordinates
      */
+
+    public Coordinates getCoordinatesById(String id){
+        Optional<Coordinates> optionalCoordinates = coordinatesRepository.findById(id);
+        if(optionalCoordinates.isPresent()){
+            return optionalCoordinates.get();
+        } else {
+            throw new CoordinatesNotFoundException("no coordinates found with id : " + id);
+        }
+    }
+
     public Coordinates addCoordinates(Coordinates coordinates) {
         return coordinatesRepository.insert(coordinates);
     }
@@ -54,7 +64,7 @@ public class CoordinatesService {
             Coordinates coordinatesToUpdate = optionalCoordinates.get();
             coordinatesToUpdate.setName(coordinates.getName());
             coordinatesToUpdate.setLatitude(coordinates.getLatitude());
-            coordinatesToUpdate.setLatitude(coordinates.getLongitude());
+            coordinatesToUpdate.setLongitude(coordinates.getLongitude());
             return coordinatesRepository.save(coordinatesToUpdate);
         } else {
             throw new CoordinatesNotFoundException("no coordinates found with id : " + id);
