@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {CoordinatesService} from "../service/coordinates.service";
+import {CoordinatesService} from "../../../core/service/coordinates.service";
 import {Observable, tap} from "rxjs";
-import {Coordinates} from "../models/coordinates.models";
-import {CoupleOfId} from "../models/CoupleOfId";
+import {Coordinates} from "../../../core/models/coordinates.models";
+import {CoupleOfId} from "../../../core/models/CoupleOfId";
 
 @Component({
   selector: 'app-distance-calculate',

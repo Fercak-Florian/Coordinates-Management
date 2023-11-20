@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {CoordinatesService} from "../service/coordinates.service";
-import {Coordinates} from "../models/coordinates.models";
+import {CoordinatesService} from "../../../core/service/coordinates.service";
+import {Coordinates} from "../../../core/models/coordinates.models";
 import {Observable, tap} from "rxjs";
 import { Router } from '@angular/router';
 
