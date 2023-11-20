@@ -1,0 +1,21 @@
+.form-group{
+    margin-bottom: 20px;
+    width: 500px;
+  }
+  
+  button{
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+    width : 150px;
+    height: 40px;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+  
+  
+  button:hover{
+    color: cornflowerblue;
+    border: solid 3px cornflowerblue;
+    background-color: whitesmoke;
+  }
